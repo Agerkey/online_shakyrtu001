@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Музыка тыңдау</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #004080;
+        }
+        .music-box {
+            background: #fff;
+            padding: 15px;
+            margin: 10px auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            margin: 5px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #007acc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005b99;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Менің музыка сайтым</h1>
+
+    <div class="music-box">
+        <p>🎵 1-ән</p>
+        <audio id="music1" src="music1.mp3"></audio>
+        <button onclick="playMusic('music1')">Ойнату</button>
+        <button onclick="pauseMusic('music1')">Тоқтату</button>
+    </div>
+
+    <div class="music-box">
+        <p>🎵 2-ән</p>
+        <audio id="music2" src="music2.mp3"></audio>
+        <button onclick="playMusic('music2')">Ойнату</button>
+        <button onclick="pauseMusic('music2')">Тоқтату</button>
+    </div>
+
+    <div class="music-box">
+        <p>🎵 3-ән</p>
+        <audio id="music3" src="music3.mp3"></audio>
+        <button onclick="playMusic('music3')">Ойнату</button>
+        <button onclick="pauseMusic('music3')">Тоқтату</button>
+    </div>
+
+    <script>
+        function playMusic(id) {
+            // Барлық музыкаларды тоқтату
+            const audios = document.querySelectorAll("audio");
+            audios.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+
+            // Таңдалған музыканы қосу
+            const selected = document.getElementById(id);
+            selected.play();
+        }
+
+        function pauseMusic(id) {
+            const selected = document.getElementById(id);
+            selected.pause();
+        }
+    </script>
+
+</body>
+</html>
